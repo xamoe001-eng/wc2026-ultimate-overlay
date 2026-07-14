@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup 2026 Ultimate Production Overlay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Master 1080p Frame -->
+    <div id="broadcast-canvas" class="broadcast-screen">
+        
+        <!-- Streamer protected camera space -->
+        <div class="video-placeholder-zone">
+            <span>📹 STREAMER VIDEO & CONTENT AREA</span>
+        </div>
+
+        <!-- Live Controller Panel -->
+        <nav class="operator-panel">
+            <div class="control-group">
+                <span class="live-indicator">🔴 CONTROL DESK</span>
+                <button class="control-btn" data-target="results-card">📊 Road to Semi-Finals</button>
+                <button class="control-btn" data-target="lineups-card">📋 Tactical Lineups & Field</button>
+                <button class="control-btn" data-target="predictions-card">🔮 Predictions & Goals</button>
+                <button class="control-btn clear-btn" id="clear-overlay-btn">❌ Hide Cards</button>
+            </div>
+            <div class="control-group-right">
+                <button id="chroma-toggle-btn" class="chroma-btn">🟢 CHROMA MODE (OFF)</button>
+            </div>
+        </nav>
+
+        <!-- Overlay Presentation Slots -->
+        <div class="overlay-display-zone">
+            
+            <!-- CARD A: PAST RESULTS -->
+            <div id="results-card" class="overlay-card-wrapper">
+                <div class="card-header-bar">⚽ ROAD TO SEMI-FINALS HISTORICAL RESULTS</div>
+                <div class="results-comparison-grid">
+                    <div class="history-col">
+                        <h3 class="col-team-name text-blue">FRANCE 🇫🇷</h3>
+                        <div class="history-item"><span class="badge">R32</span> <span class="res-text">FRA 3 - 0 SWE </span></div>
+                        <div class="history-item"><span class="badge">R16</span> <span class="res-text">FRA 1 - 0 PAR </span></div>
+                        <div class="history-item"><span class="badge">QF</span>  <span class="res-text">FRA 2 - 0 MAR</span></div>
+                    </div>
+                    <div class="history-vs-divider">VS</div>
+                    <div class="history-col">
+                        <h3 class="col-team-name text-red">SPAIN 🇪🇸</h3>
+                        <div class="history-item"><span class="badge">R32</span> <span class="res-text">ESP 3 - 0 AUT</span></div>
+                        <div class="history-item"><span class="badge">R16</span> <span class="res-text">ESP 1 - 0 POR</span></div>
+                        <div class="history-item"><span class="badge">QF</span>  <span class="res-text">ESP 2 - 1 BEL</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD B: VERTICAL TACTICAL FIELD ONLY (FIXED SQUAD OVERLAP) -->
+            <div id="lineups-card" class="overlay-card-wrapper field-large-card">
+                <div class="card-header-bar"> TACTICAL SQUAD FORMATION</div>
+                <div class="field-only-layout">
+                    <div class="tactical-pitch-container">
+                        <!-- Transformed Vertical Pitch Graph -->
+                        <div class="football-pitch vertical-pitch">
+                            <div class="center-line-v"></div>
+                            <div class="center-circle-v"></div>
+                            <div class="penalty-box-v top"></div>
+                            <div class="penalty-box-v bottom"></div>
+                            
+                            <!-- Spawning Layer -->
+                            <div id="pitch-players-layer" class="players-layer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD C: PREDICTIONS -->
+            <div id="predictions-card" class="overlay-card-wrapper">
+                <div class="card-header-bar">🔮 WIN PROBABILITY & GOAL RESULTS</div>
+                <div class="prediction-layout">
+                    <div class="prob-meta">
+                        <span>FRA: 45%</span>
+                        <span>DRAW: 20%</span>
+                        <span>ESP: 35%</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill t1-color" style="width: 45%;"></div>
+                        <div class="bar-fill draw-color" style="width: 20%;"></div>
+                        <div class="bar-fill t2-color" style="width: 35%;"></div>
+                    </div>
+                    <div class="goal-announcement-box">
+                        <div class="goal-label">🎯 EXPECTED GOAL SCORE RESULT</div>
+                        <div class="goal-digits">2 - 1</div>
+                        <div class="goal-verdict">FRANCE WIN IN EXTRA TIME</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
