@@ -1,8 +1,7 @@
 /**
  * =========================================================================
  * 🏆 CENTRAL PRODUCTION DATA-STORE
- * Match 2 Semis: England (4-2-3-1) vs Argentina (4-1-3-2)
- * All coordinates are dynamically configured for optimal spacing.
+ * ဒေတာအားလုံးကို ဒီနေရာကနေပဲ ထိန်းချုပ်ပြီး စာသားနဲ့ Visual ဘားတွေကို ကိုက်ညီအောင် လုပ်ပေးပါတယ်။
  * =========================================================================
  */
 const TOURNAMENT_DATA_STATE = {
@@ -39,6 +38,14 @@ const TOURNAMENT_DATA_STATE = {
             { name: "Álvarez", no: "9", x: 32, y: 54 },
             { name: "Messi", no: "10", x: 68, y: 54 }
         ]
+    },
+    // 🔮 ရာခိုင်နှုန်းဒေတာများကို ပုံသေညှိထားသည် (Total = 100%)
+    prediction: {
+        t1Win: 47,       // ENG %
+        draw: 16,        // DRAW %
+        t2Win: 37,       // ARG %
+        goalScore: "2 - 1",
+        verdictText: "England WIN"
     }
 };
 
@@ -56,9 +63,28 @@ function renderBroadcasterData() {
     document.getElementById('formation-header-text').textContent = 
         `📋 ${data.team1.name} (${data.team1.formationName}) vs ${data.team2.name} (${data.team2.formationName})`;
 
-    // Populate positions
+    // Render Formation Positions
     data.team1.formation.forEach(p => layer.appendChild(createPlayerNode(p, 'node-blue')));
     data.team2.formation.forEach(p => layer.appendChild(createPlayerNode(p, 'node-red')));
+
+    // =========================================================================
+    // 🔮 SYNCHRONIZATION CORE ENGINE (စာသားနှင့် Visual ကိုက်ညီအောင် ချိတ်ဆက်ခြင်း)
+    // =========================================================================
+    const pred = data.prediction;
+    
+    // 1. Update text labels dynamically
+    document.getElementById('prob-t1-text').textContent = `ENG: ${pred.t1Win}%`;
+    document.getElementById('prob-draw-text').textContent = `DRAW: ${pred.draw}%`;
+    document.getElementById('prob-t2-text').textContent = `ARG: ${pred.t2Win}%`;
+    
+    // 2. Update visual bar widths accurately matching the values
+    document.getElementById('bar-t1-fill').style.width = `${pred.t1Win}%`;
+    document.getElementById('bar-draw-fill').style.width = `${pred.draw}%`;
+    document.getElementById('bar-t2-fill').style.width = `${pred.t2Win}%`;
+
+    // 3. Goal announcement data sync
+    document.getElementById('data-predicted-goals').textContent = pred.goalScore;
+    document.getElementById('data-verdict-text').textContent = pred.verdictText;
 }
 
 function createPlayerNode(player, colorClass) {
