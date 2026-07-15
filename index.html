@@ -37,17 +37,13 @@
             <div id="results-card" class="overlay-card-wrapper">
                 <div class="card-header-bar">⚽ ROAD TO SEMI-FINALS HISTORICAL RESULTS</div>
                 <div class="results-comparison-grid">
-                    <!-- England Column -->
                     <div class="history-col">
                         <h3 class="col-team-name text-blue" id="res-t1-heading">ENGLAND 🏴󠁧󠁢󠁥󠁮󠁧󠁿</h3>
                         <div class="history-item"><span class="badge">R32</span> <span class="res-text" id="t1-r32">ENG 2 - 1 COD</span></div>
                         <div class="history-item"><span class="badge">R16</span> <span class="res-text" id="t1-r16">MEX 2 - 3 ENG</span></div>
                         <div class="history-item"><span class="badge">QF</span>  <span class="res-text" id="t1-qf">NOR 1 - 2 ENG</span></div>
                     </div>
-                    
                     <div class="history-vs-divider">VS</div>
-
-                    <!-- Argentina Column -->
                     <div class="history-col">
                         <h3 class="col-team-name text-red" id="res-t2-heading">ARGENTINA 🇦🇷</h3>
                         <div class="history-item"><span class="badge">R32</span> <span class="res-text" id="t2-r32">ARG 3 - 2 CPV</span></div>
@@ -67,32 +63,30 @@
                             <div class="center-circle-v"></div>
                             <div class="penalty-box-v top"></div>
                             <div class="penalty-box-v bottom"></div>
-                            
-                            <!-- Spawning Layer -->
                             <div id="pitch-players-layer" class="players-layer"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CARD C: PREDICTIONS -->
+            <!-- CARD C: PREDICTIONS (CRITICAL BUG FIXED HERE) -->
             <div id="predictions-card" class="overlay-card-wrapper">
                 <div class="card-header-bar">🔮 WIN PROBABILITY & GOAL RESULTS</div>
                 <div class="prediction-layout">
                     <div class="prob-meta">
-                        <span id="prob-t1-text">ENG: 47%</span>
-                        <span>DRAW: 16%</span>
-                        <span id="prob-t2-text">ARG: 37%</span>
+                        <span id="prob-t1-text">ENG: --%</span>
+                        <span id="prob-draw-text">DRAW: --%</span> <!-- Added dynamic ID -->
+                        <span id="prob-t2-text">ARG: --%</span>
                     </div>
                     <div class="bar-track">
-                        <div id="bar-t1-fill" class="bar-fill t1-color" style="width: 47%;"></div>
-                        <div id="bar-draw-fill" class="bar-fill draw-color" style="width: 16%;"></div>
-                        <div id="bar-t2-fill" class="bar-fill t2-color" style="width: 37%;"></div>
+                        <div id="bar-t1-fill" class="bar-fill t1-color"></div>
+                        <div id="bar-draw-fill" class="bar-fill draw-color"></div>
+                        <div id="bar-t2-fill" class="bar-fill t2-color"></div>
                     </div>
                     <div class="goal-announcement-box">
                         <div class="goal-label">🎯 EXPECTED GOAL SCORE RESULT</div>
-                        <div class="goal-digits" id="data-predicted-goals">2 - 1</div>
-                        <div class="goal-verdict" id="data-verdict-text">England WIN</div>
+                        <div class="goal-digits" id="data-predicted-goals">-- - --</div>
+                        <div class="goal-verdict" id="data-verdict-text">--</div>
                     </div>
                 </div>
             </div>
