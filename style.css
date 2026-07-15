@@ -89,8 +89,6 @@ body {
 }
 
 .clear-btn { background-color: #451a03; border-color: #78350f; color: #fca5a5; }
-.clear-btn:hover { background-color: #991b1b; color: white; }
-
 .chroma-btn {
     background-color: #14532d; color: #4ade80; border: 2px solid #22c55e;
     padding: 10px 18px; font-weight: bold; border-radius: 6px; cursor: pointer;
@@ -197,7 +195,7 @@ body {
 .prediction-layout { display: flex; flex-direction: column; gap: 20px; }
 .prob-meta { display: flex; justify-content: space-between; font-size: 1.4rem; font-weight: bold; color: white;}
 .bar-track { display: flex; height: 26px; background-color: #334155; border-radius: 13px; overflow: hidden; }
-.bar-fill { height: 100%; }
+.bar-fill { height: 100%; transition: width 0.3s ease-in-out; }
 .t1-color { background-color: #2563eb; }
 .draw-color { background-color: #64748b; }
 .t2-color { background-color: #0ea5e9; }
